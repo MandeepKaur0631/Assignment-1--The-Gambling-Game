@@ -1,0 +1,90 @@
+// Name: Mandeep Kaur
+// Student ID: 201906289
+// Date Submitted: 22 March, 2021
+// Class: IN2203 G1
+// Name of work: Assignment 1: The Gambling Game
+
+import java.util.*;
+class Game1 {
+	public int Guess(int p) {
+		int min = p-10; 
+		int max = p+10;
+		int range =  max - min + 1; 
+		int mat = (int)(Math.random() * range) + min; 
+		return mat;
+
+	}
+}
+
+class Player1 {
+	public int Guess() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println();
+		int n = sc.nextInt();
+		return n;
+	}
+}
+
+public class Casino {
+
+	public static void printArr(int[] arr) {
+		for(int i=0; i<10 ; ++i) {
+			System.out.println(arr[i] + " ");
+		}
+	}
+	public static void printArr1(int[] arr1) {
+		for(int i=0; i<10 ; ++i) {
+			System.out.println(arr1[i] + " ");
+		}
+	}
+	public static void main(String[] args) {
+		System.out.print("Enter your Name: ");
+		Scanner sca = new Scanner(System.in);
+		String name = sca.next();
+		System.out.println("Welcome to the Game" + name);
+
+		String Yes = "Y";
+		String yes = "y";
+		System.out.println("Type Y/N... ");
+		String yess = sca.next();
+		for(int x=1;x<=1;x++) {
+
+			if (yess.equals(Yes) || yess.equals(yes)) {
+				System.out.println("Let's get started");
+			}else {
+				System.out.println("Good bye! ");
+				return;
+			}
+		}
+		System.out.print("Guess a Number between 1 to 100: ");
+
+		Player1 e = new Player1();
+		boolean flag = true;
+		int p = e.Guess();
+		int arr[] = new int[10];
+		for(int i = 0 ; i<10 ; ++i) {
+			Game1 c = new Game1();
+			int f = c.Guess(p);
+			arr[i]=f;
+		}
+		
+		for(int j = 0 ; j<10 ; ++j) {
+			if(arr[j]==p) {
+				flag = true;
+				break;
+			}
+			else {
+				flag = false;
+			}
+		}
+		if(flag) {
+			System.out.println("Jackpot!!");
+		}
+		else {
+			System.out.println("Better luck next time!!");
+		}
+//		printArr(arr);
+		
+	}
+
+}
